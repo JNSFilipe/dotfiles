@@ -1,0 +1,8 @@
+[fish.files]
+fish = "~/.config/fish/config.fish"
+
+[tmux.files]
+tmux = "~/.tmux.conf"
+
+[starship.files]
+starship = "~/.config/starship.toml"
