@@ -12,3 +12,8 @@ end
 # Create alais to launch vim
 alias vim="nvim"
 alias v="nvim"
+
+# Create alias to replace ls by exa
+alias ls="exa"
+alias ll="exa -l"
+alias la="exa -la"

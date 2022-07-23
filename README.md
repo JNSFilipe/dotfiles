@@ -9,4 +9,5 @@ Things that need to be installed for this to work flawlessly:
 - fish
 - tmux
 - starship
+- exa
 - nerdfonts
