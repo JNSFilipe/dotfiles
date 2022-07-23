@@ -1,3 +1,4 @@
+# Enable starship support
 starship init fish | source
 
 # Function to add !! functionality to fish
@@ -17,3 +18,6 @@ alias v="nvim"
 alias ls="exa"
 alias ll="exa -l"
 alias la="exa -la"
+
+# Create alias to replace cat by bat
+alias cat="bat"

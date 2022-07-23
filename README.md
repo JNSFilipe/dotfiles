@@ -10,4 +10,5 @@ Things that need to be installed for this to work flawlessly:
 - tmux
 - starship
 - exa
+- bat
 - nerdfonts
