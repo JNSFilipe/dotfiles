@@ -1,1 +1,1 @@
-packages = ["fish", "tmux", "starship", "waybar"]
+packages = ["fish", "tmux", "starship", "sway"]
