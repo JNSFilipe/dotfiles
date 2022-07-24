@@ -21,3 +21,6 @@ alias la="exa -la"
 
 # Create alias to replace cat by bat
 alias cat="bat"
+
+# Create alias to replace cd with zoxide
+alias cd="zoxide"

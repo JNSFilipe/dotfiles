@@ -11,6 +11,7 @@ Things that need to be installed for this to work flawlessly:
 - starship
 - exa
 - bat
+- zoxide
 - nerdfonts
 - waybar
 - sway
