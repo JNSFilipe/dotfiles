@@ -29,6 +29,7 @@ set $menu rofi -show drun -show-icons -icon-theme "Papirus-Dark"
 # exec /home/steve/Projektek/XKCD/main.sh
 # output * bg /home/steve/Projektek/XKCD/result.png fill
 # output * bg /home/steve/Képek/Háttérképek/scenery.jpg fill
+output * bg ~/.config/wallpapers/w1.jpg fill
 
 #
 # Example configuration:

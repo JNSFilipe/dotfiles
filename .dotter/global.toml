@@ -7,6 +7,9 @@ tmux = "~/.tmux.conf"
 [starship.files]
 starship = "~/.config/starship.toml"
 
+[wallpapers.files]
+"wallpapers/w1.jpg" = "~/.config/wallpapers/w1.jpg"
+
 # Waybar config stolen from https://github.com/n0tsteve/glorious-dots
 [waybar.files]
 "waybar/config" = "~/.config/waybar/config"
@@ -14,7 +17,7 @@ starship = "~/.config/starship.toml"
 
 
 [sway]
-depends = ["waybar"]
+depends = ["waybar", "wallpapers"]
 
 [sway.files]
 "sway/config" = "~/.config/sway/config"
