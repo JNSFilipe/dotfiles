@@ -15,3 +15,7 @@ Things that need to be installed for this to work flawlessly:
 - nerdfonts
 - waybar
 - sway
+- grimshot
+- light
+- playerctl
+- Spotify (Flatpak)

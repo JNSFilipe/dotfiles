@@ -1,3 +1,6 @@
+# Add rust install dir to path
+fish_add_path ~/.cargo/bin
+
 # Enable starship support
 starship init fish | source
 

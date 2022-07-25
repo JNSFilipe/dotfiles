@@ -1,3 +1,6 @@
+[aux.files]
+"aux/getmedia" = "~/.aux/getmedia.py"
+
 [fish.files]
 fish = "~/.config/fish/config.fish"
 
@@ -17,7 +20,7 @@ starship = "~/.config/starship.toml"
 
 
 [sway]
-depends = ["waybar", "wallpapers"]
+depends = ["aux", "waybar", "wallpapers"]
 
 [sway.files]
 "sway/config" = "~/.config/sway/config"
