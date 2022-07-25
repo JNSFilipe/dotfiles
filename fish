@@ -1,6 +1,9 @@
 # Enable starship support
 starship init fish | source
 
+# Enable zoxide support
+zoxide init fish | source
+
 # Function to add !! functionality to fish
 function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
     if test "$argv" = !!
@@ -21,6 +24,3 @@ alias la="exa -la"
 
 # Create alias to replace cat by bat
 alias cat="bat"
-
-# Create alias to replace cd with zoxide
-alias cd="zoxide"
