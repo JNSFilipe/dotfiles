@@ -22,5 +22,6 @@ Things that need to be installed for this to work flawlessly:
 - Spotify (Flatpak)
 - R
 - mako
+- blueman
 - network-manager-applet
 - sshshuttle (and porperly configured /etc/hosts file)

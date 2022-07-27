@@ -308,6 +308,7 @@ exec $pad;
 
 # Autostart Programs
 exec nm-applet --indicator
+exec blueman-applet
 exec firefox
 exec $term
 exec dropbox start
