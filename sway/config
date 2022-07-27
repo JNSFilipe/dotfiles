@@ -10,25 +10,26 @@ font pango:Iosevka Nerd Font 10
 ### Variables
 #
 # Logo key. Use Mod1 for Alt and Mod4 for meta
-set $mod Mod1
+set $mod Mod4
+set $mod2 Mod1
+set $mod3 Ctrl
 # Home row direction keys, like vim
-#set $left h
-#set $down j
-#set $up k
-#set $right l
+set $left h
+set $down j
+set $up k
+set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term alacritty -e tmux
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show drun -show-icons -icon-theme "Papirus-Dark"
-
+set $menu rofi -show drun -display-drun "" -show-icons -icon-theme "Papirus-Dark" -theme sidebar -font "Iosevka Nerd Font 10"
+# Set scratchpad commands
+set $calc alacritty -t calc -e R -q --no-save
+set $pad alacritty -t paddd -e tmux
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# exec /home/steve/Projektek/XKCD/main.sh
-# output * bg /home/steve/Projektek/XKCD/result.png fill
-# output * bg /home/steve/Képek/Háttérképek/scenery.jpg fill
 output * bg ~/.config/wallpapers/w1.jpg fill
 
 #
@@ -43,30 +44,29 @@ output * bg ~/.config/wallpapers/w1.jpg fill
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'bash /home/steve/.config/sway/lock.sh' \
-	 timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'bash /home/steve/.config/sway/lock.sh'
+         timeout 300 'asusctl -k off; bash ~/.aux/swaylock.sh' \
+	 timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; asusctl -k low' \
+         before-sleep 'bash ~/.aux/swaylock.sh'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
-# Example configuration:
-#
-#input "2:14:SynPS/2_Synaptics_TouchPad" {
-#	dwt enabled
-#	tap enabled
-#	natural_scroll enabled
-#	middle_emulation enabled
-#}
 
 input * {
+    # Set lauot as ppt
     xkb_layout "pt"
+    # Set CapsLock as Ctrl
+    xkb_options ctrl:nocaps
+    # No idea what this does
     dwt enabled
+    # Set tap to click
     tap enabled
+    # Disable natural scrolling
     natural_scroll disabled
+    # Set pointer speed
+    pointer_accel 0.65
 #    middle_emulation enabled
 #    xkb_options "grp:win_space_toggle"
 }
@@ -83,10 +83,11 @@ input * {
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    # bindsym $mod+c exec ~/.aux/roficalc.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -104,10 +105,10 @@ input * {
 # Moving around:
 #
     # Move your focus around
-    #bindsym $mod+$left focus left
-    #bindsym $mod+$down focus down
-    #bindsym $mod+$up focus up
-    #bindsym $mod+$right focus right
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     #bindsym $mod+Left focus left
     #bindsym $mod+Down focus down
@@ -115,10 +116,10 @@ input * {
     #bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    #bindsym $mod+Shift+$left move left
-    #bindsym $mod+Shift+$down move down
-    #bindsym $mod+Shift+$up move up
-    #bindsym $mod+Shift+$right move right
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
     # Ditto, with arrow keys
     #bindsym $mod+Shift+Left move left
     #bindsym $mod+Shift+Down move down
@@ -157,8 +158,8 @@ input * {
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+h splith
-    bindsym $mod+v splitv
+    bindsym $mod+Shift+backslash splith
+    bindsym $mod+backslash splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -169,10 +170,10 @@ input * {
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym $mod3+Space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    bindsym $mod3+Shift+Space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -183,11 +184,16 @@ input * {
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+
+    # bindsym $mod+period [con_mark="calc"] scratchpad show || exec $calc
+    bindsym $mod2+Space exec swaymsg [title="calc"] scratchpad show || $(exec $calc && sleep 0.2 && swaymsg [title="calc"] scratchpad show)
+
+
+    bindsym $mod+Space exec swaymsg [title="paddd"] scratchpad show || $(exec $pad && sleep 0.2 && swaymsg [title="paddd"] scratchpad show)
+
 #
 # Resizing containers:
 #
@@ -236,18 +242,18 @@ include /etc/sway/config.d/*
 # Window Appearance
 default_border pixel 0
 for_window [class=".*"] border pixel 0
-gaps inner 32
-gaps outer 10
+gaps inner 10
+gaps outer 0
 
 # Some useful shortcuts
 bindsym $mod+Shift+w exec firefox
 bindsym $mod+Shift+s exec spotify
 bindsym $mod+Shift+d exec discord
 bindsym $mod+Shift+g exec gimp
-bindsym $mod+x exec /home/steve/.config/sway/rofi-power.sh
+bindsym $mod+x exec ~/.aux/rofipower.sh
 
 # Assign some windows to workspaces
-assign [app_id="firefox"] 1
+assign [app_id="firefox"] 2
 assign [class="discord"] 3
 for_window [class="discord"] move to workspace 3
 for_window [class="Spotify"] move to workspace 4
@@ -258,8 +264,12 @@ for_window [window_role="gimp-dock"] floating disable; move left; resize shrink 
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 assign [class="Steam"] 7
 
+# Rules for scratchpads
+for_window [title="calc"] move scratchpad
+for_window [title="paddd"] move scratchpad
+
 # Lockscreen
-bindsym $mod+l exec bash /home/steve/.config/sway/lock.sh
+ bindsym $mod3+Shift+l exec bash ~/.aux/swaylock.sh
 
 # Media controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
@@ -273,23 +283,36 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym XF86Search exec wofi --show drun -G -I -m -d
 bindsym XF86MonBrightnessUp exec light -A 1
 bindsym XF86MonBrightnessDown exec light -U 1
+bindsym XF86KbdBrightnessUp exec asusctl -k low
+bindsym XF86KbdBrightnessDown exec asusctl -k off
+bindsym Print exec grimshot --notify save area
 
-bindsym Print exec /home/steve/.config/sway/screenshot.sh
-bindsym Shift+Print exec /home/steve/.config/sway/screenshot_slurp.sh
 # Run Waybar on start
 exec waybar
 
 # Run playerctld on start
 exec playerctld
 
-# Run dunst on start
-exec dunst
+# Run mako on start
+exec mako
 
 exec eww
 exec /home/steve/.config/eww/scripts/getweather
 exec /home/steve/.config/eww/scripts/getquotes
 # Sway fading script
 #exec python3 /home/steve/.config/sway/swayfader.py
+
+# Autostart scratchpads
+exec $calc
+exec $pad;
+
+# Autostart Programs
+exec nm-applet --indicator
+exec firefox
+exec $term
+exec dropbox start
+exec asusctltray
+exec flatpak run com.spotify.Client
 
 # Defining colors         border     bg         text       indicator  child_border
 client.focused        	 	#12151d    #12151d    #abb2bf    #c678dd    #12151d
@@ -309,9 +332,9 @@ bindsym $mod+Control+Shift+Up move workspace to output up
 #border_images.unfocused /home/steve/.config/sway/borders/dropShadowDark.png
 #border_images.urgent /home/steve/.config/sway/borders/dropShadowDark.png
 
-bindsym $mod+p exec /home/steve/.config/eww/launch_eww
-bindsym $mod+o exec /home/steve/.config/eww/launch_eww_side
-bindsym $mod+n exec /home/steve/.config/rofi/scripts/nmcli-rofi/nmcli-rofi
+# bindsym $mod+p exec /home/steve/.config/eww/launch_eww
+# bindsym $mod+o exec /home/steve/.config/eww/launch_eww_side
+# bindsym $mod+n exec /home/steve/.config/rofi/scripts/nmcli-rofi/nmcli-rofi
 
-exec /home/steve/.config/eww/scripts/timer
-exec /home/steve/.config/eww/scripts/weather-timer
+# exec /home/steve/.config/eww/scripts/timer
+# exec /home/steve/.config/eww/scripts/weather-timer

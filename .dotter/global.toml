@@ -1,5 +1,7 @@
 [aux.files]
 "aux/getmedia" = "~/.aux/getmedia.py"
+"aux/rofipower" = "~/.aux/rofipower.sh"
+"aux/swaylock" = "~/.aux/swaylock.sh"
 
 [fish.files]
 fish = "~/.config/fish/config.fish"
@@ -9,6 +11,9 @@ tmux = "~/.tmux.conf"
 
 [starship.files]
 starship = "~/.config/starship.toml"
+
+[alacritty.files]
+alacritty = "~/.config/alacritty/alacritty.yml"
 
 [wallpapers.files]
 "wallpapers/w1.jpg" = "~/.config/wallpapers/w1.jpg"

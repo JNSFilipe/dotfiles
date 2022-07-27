@@ -15,7 +15,11 @@ Things that need to be installed for this to work flawlessly:
 - nerdfonts
 - waybar
 - sway
+- swaylock-effects (copr)
 - grimshot
 - light
 - playerctl
 - Spotify (Flatpak)
+- R
+- mako
+- network-manager-applet
