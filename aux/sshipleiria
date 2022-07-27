@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sshuttle -v -r jfilipe.it@altas:22 10.20.96.0/24

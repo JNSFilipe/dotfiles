@@ -23,3 +23,4 @@ Things that need to be installed for this to work flawlessly:
 - R
 - mako
 - network-manager-applet
+- sshshuttle (and porperly configured /etc/hosts file)

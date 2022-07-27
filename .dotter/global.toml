@@ -2,6 +2,7 @@
 "aux/getmedia" = "~/.aux/getmedia.py"
 "aux/rofipower" = "~/.aux/rofipower.sh"
 "aux/swaylock" = "~/.aux/swaylock.sh"
+"aux/sshipleiria" = "~/.aux/sshipleiria"
 
 [fish.files]
 fish = "~/.config/fish/config.fish"
