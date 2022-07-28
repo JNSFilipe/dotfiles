@@ -15,7 +15,6 @@ Things that need to be installed for this to work flawlessly:
 - nerdfonts
 - waybar
 - sway
-- swaylock-effects (copr)
 - grimshot
 - light
 - playerctl
@@ -24,5 +23,4 @@ Things that need to be installed for this to work flawlessly:
 - mako
 - blueman
 - network-manager-applet
-- sshshuttle (and porperly configured /etc/hosts file)
 - gammastep

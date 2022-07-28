@@ -44,9 +44,10 @@ output * bg ~/.config/wallpapers/w1.jpg fill
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'asusctl -k off; bash ~/.aux/swaylock.sh' \
-	 timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; asusctl -k low' \
-         before-sleep 'bash ~/.aux/swaylock.sh'
+         timeout 300 'asusctl -k off; swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; asusctl -k low' \
+         before-sleep 'swaylock -f -c 000000'
+
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
