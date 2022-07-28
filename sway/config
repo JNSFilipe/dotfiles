@@ -178,6 +178,9 @@ input * {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+    # Recreate alt+tab behaviour
+    bindsym $mod2+Tab workspace back_and_forth
 #
 # Scratchpad:
 #
