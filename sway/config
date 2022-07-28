@@ -307,6 +307,7 @@ exec $calc
 exec $pad;
 
 # Autostart Programs
+exec gammastep -P -O 5500
 exec nm-applet --indicator
 exec blueman-applet
 exec firefox
