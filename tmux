@@ -12,6 +12,9 @@
 set -g default-terminal "screen-256color"
 if 'infocmp -x tmux-256color > /dev/null 2>&1' 'set -g default-terminal "tmux-256color"'
 
+# Set fish as default shell
+set-option -g default-shell /usr/bin/fish
+
 setw -g xterm-keys on
 set -s escape-time 10                     # faster command sequences
 set -sg repeat-time 600                   # increase repeat timeout
@@ -23,7 +26,7 @@ bind C-a send-prefix -2
 set -q -g status-utf8 on                  # expect UTF-8 (tmux < 2.2)
 setw -q -g utf8 on
 
-# set -g history-limit 5000                 # boost history
+set -g history-limit 5000                 # boost history
 
 # edit configuration
 bind e new-window -n "~/.tmux.conf.local" "EDITOR=\${EDITOR//mvim/vim} && EDITOR=\${EDITOR//gvim/vim} && \${EDITOR:-vim} ~/.tmux.conf.local && tmux source ~/.tmux.conf && tmux display \"~/.tmux.conf sourced\""
@@ -48,7 +51,7 @@ set -g display-time 1000      # slightly longer status messages display time
 set -g status-interval 10     # redraw status line every 10 seconds
 
 # clear both screen and history
-bind -n C-S-l send-keys C-l \; run 'sleep 0.2' \; clear-history
+bind -n C-l send-keys C-l \; run 'sleep 0.2' \; clear-history
 
 # activity
 set -g monitor-activity on
