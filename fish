@@ -10,6 +10,9 @@ starship init fish | source
 # Enable zoxide support
 zoxide init fish | source
 
+# Enable vi-mode
+fish_vi_key_bindings
+
 # Function to add !! functionality to fish
 function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
     if test "$argv" = !!
