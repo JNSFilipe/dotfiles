@@ -187,7 +187,8 @@ set -g @prefix_highlight_copy_mode_attr "fg=brightcyan,bg=black,bold"
 #+--------+
 #+--- Bars ---+
 #set -g status-left "#[fg=black,bg=blue,bold] #S #[fg=blue,bg=black,nobold,noitalics,nounderscore]"
-set -g status-left "#[fg=black,bg=blue,bold] #S #{?client_prefix,#[reverse]M#[noreverse] ,} #{=21:pane_title}' #[fg=blue,bg=black,nobold,noitalics,nounderscore]"
+set -g status-left-length 64
+set -g status-left "#[fg=black,bg=blue,bold] #S #{?client_prefix,#[reverse]M#[noreverse],} #{b:pane_current_path} #[fg=blue,bg=black,nobold,noitalics,nounderscore]"
 set -g status-right "#{prefix_highlight}#[fg=brightblack,bg=black,nobold,noitalics,nounderscore]#[fg=white,bg=brightblack] %d-%M-%Y #[fg=white,bg=brightblack,nobold,noitalics,nounderscore]#[fg=white,bg=brightblack] %H:%M #[fg=cyan,bg=brightblack,nobold,noitalics,nounderscore]#[fg=black,bg=cyan,bold] #H "
 
 #+--- Windows ---+
