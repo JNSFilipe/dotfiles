@@ -1,7 +1,6 @@
 [aux.files]
 "aux/getmedia" = "~/.aux/getmedia.py"
 "aux/rofipower" = "~/.aux/rofipower.sh"
-"aux/swaylock" = "~/.aux/swaylock.sh"
 "aux/sshipleiria" = "~/.aux/sshipleiria"
 
 [fish.files]
@@ -24,9 +23,18 @@ alacritty = "~/.config/alacritty/alacritty.yml"
 "waybar/config" = "~/.config/waybar/config"
 "waybar/style" = "~/.config/waybar/style.css"
 
-
 [sway]
 depends = ["aux", "waybar", "wallpapers"]
 
 [sway.files]
 "sway/config" = "~/.config/sway/config"
+
+[nvim.files]
+"nvim/init" = "~/.config/nvim/init.lua"
+"nvim/options" = "~/.config/nvim/lua/user/options.lua"
+"nvim/keymaps" = "~/.config/nvim/lua/user/keymaps.lua"
+"nvim/packerbootstrap" = "~/.config/nvim/lua/user/packerbootstrap.lua"
+"nvim/plugins" = "~/.config/nvim/lua/user/plugins.lua"
+"nvim/theme" = "~/.config/nvim/lua/user/theme.lua"
+"nvim/whichkey" = "~/.config/nvim/lua/user/whichkey.lua"
+
