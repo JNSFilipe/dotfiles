@@ -30,11 +30,11 @@ depends = ["aux", "waybar", "wallpapers"]
 "sway/config" = "~/.config/sway/config"
 
 [nvim.files]
-"nvim/init" = "~/.config/nvim/init.lua"
-"nvim/options" = "~/.config/nvim/lua/user/options.lua"
-"nvim/keymaps" = "~/.config/nvim/lua/user/keymaps.lua"
-"nvim/packerbootstrap" = "~/.config/nvim/lua/user/packerbootstrap.lua"
-"nvim/plugins" = "~/.config/nvim/lua/user/plugins.lua"
-"nvim/theme" = "~/.config/nvim/lua/user/theme.lua"
-"nvim/whichkey" = "~/.config/nvim/lua/user/whichkey.lua"
+"nvim/init.lua" = "~/.config/nvim/init.lua"
+"nvim/options.lua" = "~/.config/nvim/lua/user/options.lua"
+"nvim/keymaps.lua" = "~/.config/nvim/lua/user/keymaps.lua"
+"nvim/packerbootstrap.lua" = "~/.config/nvim/lua/user/packerbootstrap.lua"
+"nvim/plugins.lua" = "~/.config/nvim/lua/user/plugins.lua"
+"nvim/theme.lua" = "~/.config/nvim/lua/user/theme.lua"
+"nvim/whichkey.lua" = "~/.config/nvim/lua/user/whichkey.lua"
 
