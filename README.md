@@ -24,3 +24,4 @@ Things that need to be installed for this to work flawlessly:
 - blueman
 - network-manager-applet
 - gammastep
+- ripgrep
