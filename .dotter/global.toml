@@ -41,4 +41,5 @@ depends = ["aux", "waybar", "wallpapers"]
 "nvim/terminal.lua" = "~/.config/nvim/lua/user/terminal.lua"
 "nvim/navigation.lua" = "~/.config/nvim/lua/user/navigation.lua"
 "nvim/coding.lua" = "~/.config/nvim/lua/user/coding.lua"
+"nvim/misc.lua" = "~/.config/nvim/lua/user/misc.lua"
 
