@@ -13,20 +13,28 @@ font pango:Iosevka Nerd Font 10
 set $mod Mod4
 set $mod2 Mod1
 set $mod3 Ctrl
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
+
 # Your preferred terminal emulator
-set $term alacritty -e tmux
+# set $term alacritty -e tmux
+set $term wezterm
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu rofi -show drun -display-drun "" -show-icons -icon-theme "Papirus-Dark" -theme sidebar -font "Iosevka Nerd Font 10"
+
 # Set scratchpad commands
-set $calc alacritty -t calc -e R -q --no-save
-set $pad alacritty -t paddd -e tmux
+# set $calc alacritty -t calc -e R -q --no-save
+set $calc wezterm start --class "calc" R -q --no-save
+# set $pad alacritty -t paddd -e tmux
+set $pad wezterm start --class "paddd"
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -192,11 +200,12 @@ input * {
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
 
-    # bindsym $mod+period [con_mark="calc"] scratchpad show || exec $calc
-    bindsym $mod2+Space exec swaymsg [title="calc"] scratchpad show || $(exec $calc && sleep 0.2 && swaymsg [title="calc"] scratchpad show)
+    # bindsym $mod2+Space exec swaymsg [title="calc"] scratchpad show || $(exec $calc && sleep 0.2 && swaymsg [title="calc"] scratchpad show)
+    bindsym $mod2+Space exec swaymsg [app_id="calc"] scratchpad show || $(exec $calc && sleep 0.2 && swaymsg [app_id="calc"] scratchpad show)
 
 
-    bindsym $mod+Space exec swaymsg [title="paddd"] scratchpad show || $(exec $pad && sleep 0.2 && swaymsg [title="paddd"] scratchpad show)
+    # bindsym $mod+Space exec swaymsg [title="paddd"] scratchpad show || $(exec $pad && sleep 0.2 && swaymsg [title="paddd"] scratchpad show)
+    bindsym $mod+Space exec swaymsg [app_id="paddd"] scratchpad show || $(exec $pad && sleep 0.2 && swaymsg [app_id="paddd"] scratchpad show)
 
 #
 # Resizing containers:
@@ -269,8 +278,11 @@ for_window [window_role="gimp-toolbox"] floating disable; move right; resize gro
 assign [class="Steam"] 7
 
 # Rules for scratchpads
-for_window [title="calc"] move scratchpad
-for_window [title="paddd"] move scratchpad
+# for_window [title="calc"] move scratchpad
+# for_window [title="paddd"] move scratchpad
+for_window [app_id="calc"] move scratchpad
+for_window [app_id="paddd"] move scratchpad
+
 
 # Lockscreen
  bindsym $mod3+Shift+l exec bash ~/.aux/swaylock.sh
@@ -331,12 +343,12 @@ bindsym $mod+Control+Shift+Left move workspace to output left
 bindsym $mod+Control+Shift+Down move workspace to output down
 bindsym $mod+Control+Shift+Up move workspace to output up
 
-#output eDP-1 mode 1920x1080@75Hz
+# output eDP-1 mode 1920x1080@75Hz
 
-#border_images.focused /home/steve/.config/sway/borders/dropShadowDark.png
-#border_images.focused_inactive /home/steve/.config/sway/borders/dropShadowDark.png
-#border_images.unfocused /home/steve/.config/sway/borders/dropShadowDark.png
-#border_images.urgent /home/steve/.config/sway/borders/dropShadowDark.png
+# border_images.focused /home/steve/.config/sway/borders/dropShadowDark.png
+# border_images.focused_inactive /home/steve/.config/sway/borders/dropShadowDark.png
+# border_images.unfocused /home/steve/.config/sway/borders/dropShadowDark.png
+# border_images.urgent /home/steve/.config/sway/borders/dropShadowDark.png
 
 # bindsym $mod+p exec /home/steve/.config/eww/launch_eww
 # bindsym $mod+o exec /home/steve/.config/eww/launch_eww_side

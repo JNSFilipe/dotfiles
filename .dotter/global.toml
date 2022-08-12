@@ -15,6 +15,9 @@ starship = "~/.config/starship.toml"
 [alacritty.files]
 alacritty = "~/.config/alacritty/alacritty.yml"
 
+[wezterm.files]
+"wezterm.lua" = "~/.config/wezterm/wezterm.lua"
+
 [wallpapers.files]
 "wallpapers/w1.jpg" = "~/.config/wallpapers/w1.jpg"
 
