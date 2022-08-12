@@ -7,7 +7,7 @@ Managed with [dotter](https://github.com/SuperCuber/dotter).
 Things that need to be installed for this to work flawlessly:
 - bash
 - fish
-- tmux
+- tmux (opt)
 - starship
 - exa
 - bat
@@ -25,3 +25,4 @@ Things that need to be installed for this to work flawlessly:
 - network-manager-applet
 - gammastep
 - ripgrep
+- wezterm
