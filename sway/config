@@ -35,6 +35,8 @@ set $calc wezterm start --class "calc" R -q --no-save
 # set $pad alacritty -t paddd -e tmux
 set $pad wezterm start --class "paddd"
 
+set $editor wezterm start --class "NeoVim" nvim
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -97,6 +99,9 @@ input * {
     # Start your launcher
     bindsym $mod+d exec $menu
     # bindsym $mod+c exec ~/.aux/roficalc.sh
+
+    # Start Editor
+    bindsym $mod+v exec $editor
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -267,6 +272,8 @@ bindsym $mod+x exec ~/.aux/rofipower.sh
 
 # Assign some windows to workspaces
 assign [app_id="firefox"] 2
+assign [app_id="NeoVim"] 3
+for_window [app_id="NeoVim"] move to workspace 3
 assign [class="discord"] 3
 for_window [class="discord"] move to workspace 3
 for_window [class="Spotify"] move to workspace 4
@@ -331,6 +338,8 @@ exec $term
 exec dropbox start
 exec asusctltray
 exec flatpak run com.spotify.Client
+exec $editor
+
 
 # Defining colors         border     bg         text       indicator  child_border
 client.focused        	 	#12151d    #12151d    #abb2bf    #c678dd    #12151d
