@@ -276,8 +276,10 @@ assign [app_id="NeoVim"] 3
 for_window [app_id="NeoVim"] move to workspace 3
 assign [class="discord"] 3
 for_window [class="discord"] move to workspace 3
-for_window [class="Spotify"] move to workspace 4
+assign [class="obsidian"] 4
+for_window [class="obsidian"] move to workspace 4
 assign [app_id="nemo"] 5
+for_window [class="Spotify"] move to workspace 5
 for_window [title="GIMP Startup"] move workspace 6
 for_window [class="Gimp"] move workspace 6
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
@@ -339,6 +341,7 @@ exec dropbox start
 exec asusctltray
 exec flatpak run com.spotify.Client
 exec $editor
+exec flatpak md.obsidian.Obsidian
 
 
 # Defining colors         border     bg         text       indicator  child_border
