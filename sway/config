@@ -284,6 +284,8 @@ bindsym $mod+x exec ~/.aux/rofipower.sh
 assign [app_id="firefox"] 2
 assign [app_id="NeoVim"] 3
 for_window [app_id="NeoVim"] move to workspace 3
+assign [class="Code"] 3
+for_window [app_id="Code"] move to workspace 3
 assign [class="discord"] 3
 for_window [class="discord"] move to workspace 3
 assign [class="obsidian"] 4
@@ -339,7 +341,7 @@ exec /home/steve/.config/eww/scripts/getquotes
 
 # Autostart scratchpads
 exec $calc
-exec $pad;
+exec $pad
 
 # Autostart Programs
 exec gammastep -P -O 5500
@@ -350,7 +352,8 @@ exec $term
 exec dropbox start
 exec asusctltray
 exec flatpak run com.spotify.Client
-exec $editor
+# exec $editor
+exec code
 exec flatpak md.obsidian.Obsidian
 
 
